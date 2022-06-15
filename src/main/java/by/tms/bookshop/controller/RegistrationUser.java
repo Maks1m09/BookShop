@@ -40,7 +40,7 @@ public class RegistrationUser {
     @PostMapping("/registration")
     public String addUser(@RequestParam String name, @RequestParam String login, @RequestParam String password, Model model, Map<String, Object> mod ) {
         User user = new User(name, login, password);
-        if (userService.findUserByName(user.getName())!=null){
+        if (userService.findUserByLogin(user.getName())!=null){
             mod.put("message", "User exists!");
             return "registration";
         }
